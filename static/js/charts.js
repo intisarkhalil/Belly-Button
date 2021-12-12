@@ -162,7 +162,7 @@ function buildCharts(sample) {
     ];
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
-      annotatios:[{
+      annotations:[{
         xref:"paper",
         yref:"paper",
         x:0.5,
@@ -170,10 +170,8 @@ function buildCharts(sample) {
         y: 0,
         yanchor: "center",
         showarrow:false,
-        text:"The gauge displays your belly button weekly washing ferequency",
-        width: 600,
-        height: 500, 
-        margin: { t: 5, b: 5 }
+        text:"The Gauge Displays Your Belly Button Weekly Washing Ferequency",
+      autosize:true       
      }]
     };
     // 6. Use Plotly to plot the gauge data and layout.
