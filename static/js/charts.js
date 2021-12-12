@@ -77,8 +77,8 @@ function buildCharts(sample) {
     console.log(yticks);
     // 8. Create the trace for the bar chart. 
     var barData = [{
-      x: sampleValues.slice(0,10).reverse(),
-      text: otuLabels.slice(0,10).reverse(),
+      x: sampleValues.slice(0, 10).reverse(),
+      text: otuLabels.slice(0, 10).reverse(),
       type: "bar"
     }];
     // 9. Create the layout for the bar chart. 
@@ -87,7 +87,7 @@ function buildCharts(sample) {
       yaxis: {
         tickmode: "array",
         tickvals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        ticktext:yticks
+        ticktext: yticks
       },
       annotations: [{
         xref: "paper",
@@ -96,8 +96,8 @@ function buildCharts(sample) {
         xanchor: "center", 
         y: -0.25,
         yanchor: "center",
-        text: 'The Bar Chart Displays the Top 10 Bacterial Species (OTUs) <br> with the',
-        showarrow:false
+        text: 'The Bar Chart Displays the Top 10 Bacterial Species (OTUs)<br>with the number of samples found in your belly button',
+        showarrow: false
       }]
     };
     // 10. Use Plotly to plot the data with the layout. 
