@@ -12,24 +12,19 @@ function init() {
         .text(sample)
         .property("value", sample);
     });
-
     // Use the first sample from the list to build the initial plots
     var firstSample = sampleNames[0];
     buildCharts(firstSample);
     buildMetadata(firstSample);
   });
 }
-
 // Initialize the dashboard
 init();
-
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
-  buildCharts(newSample);
-  
+  buildCharts(newSample);  
 }
-
 // Demographics Panel 
 function buildMetadata(sample) {
   d3.json("samples.json").then((data) => {
@@ -68,7 +63,7 @@ function buildCharts(sample) {
     console.log(sampleOne);
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otuIds=sampleOne.otu_ids;
-    var otoLabels=sampleOne.otu_lables;
+    var otuLables=sampleOne.otu_lables;
     var sampleValues=sampleOne.sample_values;
     console.log(otuIds);
     console.log(otuLables);
@@ -76,10 +71,8 @@ function buildCharts(sample) {
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
-
     var yticks = otuIds.slice(0, 10).map(id=>"OTU"=id).reverse();
     console.log(yticks);
-
     // 8. Create the trace for the bar chart. 
     var barData = [{
       x: sampleValues.slice(0, 10).reverse(),
@@ -88,7 +81,7 @@ function buildCharts(sample) {
     }];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title:"Top 10Bacteria Cultures Found",
+      title:"Top 10 Bacteria Cultures Found",
       yaxis: {
         tickmode: "array",
         tickvals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -97,14 +90,13 @@ function buildCharts(sample) {
       annotations: [{
         xref: "paper",
         yref: "paper", 
-        x=0.5,
+        x: 0.5,
         xanchor: "center", 
         y: -0.25,
         yanchor: "center",
         text: 'The Bar Chart Displays the Top 10 Bacterial Species (OTUs) <br> with the',
         showarrow:false
       }]
-     
     };
     // 10. Use Plotly to plot the data with the layout. 
     plotly.newPlot("bar", barData, barLayout, {responsive:true});
@@ -127,8 +119,9 @@ function buildCharts(sample) {
     var bubbleLayout={
       title: "Bacteria Cultures per sample",
       showlegend: false,
-      xaxis: {title:"OTU ID", Automargin:true},
-      hovermode:"closest",
+      xaxis: {title:"OTU ID", automargin:true},
+      yaxis: {automargin: true},
+      hovermode:"closest"
       };
       console.log(bubbleLayout);
     // 3. Use Plotly to plot the data with the layout.
@@ -141,12 +134,6 @@ function buildCharts(sample) {
     // Create variables that hold the otu_ids, otu_labels, and sample_values.
     // 3. Create a variable that holds the washing frequency.
     var washFreq= +metadata_selId[0].wfreq;
-    // Create the yticks for the bar chart.
-
-    // Use Plotly to plot the bar data and layout.
-    Plotly.newPlot();
-    // Use Plotly to plot the bubble data and layout.
-    Plotly.newPlot();
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
