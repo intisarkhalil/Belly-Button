@@ -137,12 +137,13 @@ function buildCharts(sample) {
     // Create variables that hold the otu_ids, otu_labels, and sample_values.
     // 3. Create a variable that holds the washing frequency.
     var washFreq= +metadata_selId[0].wfreq;
+    console.log(washFreq);
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
         domain:{x:[0, 1], y:[0, 1]},
         value:washFreq,
-        title:{ text:"<b>Belly Button Washing Frequency</b><br>Scrubs per week"},
+        title:{ text:"Weekley Washing Frequency"},
         type: "indecator",
         mode: "gauge+number",
         gauge:{
@@ -152,7 +153,7 @@ function buildCharts(sample) {
             tickvals:[0,2,4,6,8,10],
             ticktext:[0,2,4,6,8,10]
           },
-          bar:{color:"black"},
+          gauge:{color:"black"},
           steps:[
             {range:[0, 2], color:"red"},
             {range:[2, 4], color:"orange"},
