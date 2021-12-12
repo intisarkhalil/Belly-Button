@@ -137,7 +137,6 @@ function buildCharts(sample) {
     // Create variables that hold the otu_ids, otu_labels, and sample_values.
     // 3. Create a variable that holds the washing frequency.
     var washFreq= +metadata_selId[0].wfreq;
-    console.log(washFreq);
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
@@ -145,38 +144,33 @@ function buildCharts(sample) {
         value:washFreq,
         title:{ text:"Weekley Washing Frequency"},
         type: "indecator",
-        mode: "gauge+number",
+        mode: "gauge+number+delta",
         gauge:{
           axis:{
-            range:[null, 10],
-            tickmode:"array",
-            tickvals:[0,2,4,6,8,10],
-            ticktext:[0,2,4,6,8,10]
-          },
-          gauge:{color:"black"},
+            range:[0, 9],
+            ticjwidth:1, 
+            tickcolor:"darkblue"},
+          bar:{color:"blue"},
           steps:[
-            {range:[0, 2], color:"red"},
-            {range:[2, 4], color:"orange"},
-            {range:[4, 6], color:"yellow"},
-            {range:[6, 8], color:"lime"},
-            {range:[8, 10], color:"green"}]
-        }      
+            {range:[0, 4], color:"red"},
+            {range:[4, 9], color:"orange"},
+          ],
+          threshold:{
+            line:{color:"gray", width:4},
+            thickness:1,
+            value:9
+          }
+        },
+        bgcolor:"lavender"      
       }
     ]; 
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-      autosize:true,
-      annotations:[{
-        xref:'paper',
-        yref:'paper',
-        x: 0.5,
-        xanchor:'center',
-        y: 0,
-        yanchor:'center',
-        text: "The gauge displays ypur belly button weekly washing frequency",
-        showarrow:false
-      }]
-     
+        width: 200,
+        height:370,
+        margin:{t:25, r:25, l:25, b:25},
+        paper_bgcolor:"lavender",
+        font:{color:"darkblue", family:"Arial"}
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
