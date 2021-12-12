@@ -48,17 +48,17 @@ function buildMetadata(sample) {
     });
 
   });
-};
+}
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
     console.log(data);
     // 3. Create a variable that holds the samples array. 
-    var sampleArray=data.samples;  
-    console.log(sampleArray);
+    var samplesArray=data.samples;  
+    console.log(samplesArray);
     // 4. Create a variable that filters the samples for the object with the desired sample number.
-    var selectedId=sampleArray.filter(data=>data.id==sample);
+    var selectedId=samplesArray.filter(data=> data.id==sample);
     console.log(selectedId);
     //  5. Create a variable that holds the first sample in the array.
     var firstSample=selectedId[0];
@@ -129,7 +129,7 @@ function buildCharts(sample) {
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, barLayout, {responsive:true}); 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var metadata_selId=data.metadata.filter(data=> data.id== sample);
+    var metadata_selId=data.metadata.filter(data=> data.id == sample);
     console.log(metadata_selId);
     // Create a variable that holds the first sample in the array.
     // 2. Create a variable that holds the first sample in the metadata array.
