@@ -153,11 +153,11 @@ function buildCharts(sample) {
           },
           bar:{color:"black"},
           steps:[
-            {range:[0,2], color:"red"},
-            {range:[2,4], color:"otange"},
-            {range:[4,6], color:"yellow"},
-            {range:[6,8], color:"lime"},
-            {range:[8,10], color:"range"}]
+            {range:[0, 2], color:"red"},
+            {range:[2, 4], color:"otange"},
+            {range:[4, 6], color:"yellow"},
+            {range:[6, 8], color:"lime"},
+            {range:[8, 10], color:"green"}]
         }      
       }
     ]; 
@@ -167,9 +167,9 @@ function buildCharts(sample) {
       annotations:[{
         xref:'paper',
         yref:'paper',
-        x:0.5,
+        x: 0.5,
         xanchor:'center',
-        y:0,
+        y: 0,
         yanchor:'center',
         text: "The gauge displays ypur belly button weekly washing frequency",
         showarrow:false
