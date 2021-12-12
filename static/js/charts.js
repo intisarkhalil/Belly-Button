@@ -101,7 +101,7 @@ function buildCharts(sample) {
       }]
     };
     // 10. Use Plotly to plot the data with the layout. 
-    plotly.newPlot("bar", barData, barLayout, {responsive:true});
+    Plotly.newPlot("bar", barData, barLayout, {responsive:true});
     // Bar and Bubble charts
     // Deliverable 1 Step 10. Use Plotly to plot the data with the layout. 
     // 1. Create the trace for the bubble chart.
