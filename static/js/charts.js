@@ -142,21 +142,17 @@ function buildCharts(sample) {
       {
         domain: { x: [0, 1], y: [0, 1] },
         value: washFreq,
-        title: { text: "Weekly Washing Frequency" },
+        title: { text: "<b>Belly Button Woshing Frequency</b><br>Scrub per Week"},
         type: "indicator",
         mode: "gauge+number",
         gauge: {axis:{
-          range:[0, 9]},
+          range:[null, 10]},
           steps:[
-            {range:[0,1], color:"660000"},
-            {range:[1,2], color:"CC0000"},
-            {range:[2,3], color:"CC3333"},
-            {range:[3,4], color:"FFCC00"},
-            {range:[4,5], color:"FFFF33"},
-            {range:[5,6], color:"99FF99"},
-            {range:[6,7], color:"00FF00"},
-            {range:[7,8], color:"00CC00"},
-            {range:[8,9], color:"003300"}]
+            {range:[0,2], color:"red"},
+            {range:[2,4], color:"orange"},
+            {range:[4,6], color:"yellow"},
+            {range:[6,8], color:"lime"},
+            {range:[8,10], color:"green"}]
         }
       }
     ];
